@@ -17,6 +17,7 @@ En este paso se dejara listo el ambiente para trabajar sobre las maquinas virtua
 2. Encender las seis maquinas virtuales que se le fueron asignadas, dando click en el botón de play.
 ![Captura de Pantalla 2020-07-07 a la(s) 1 12 24 a  m](https://user-images.githubusercontent.com/45157348/86725280-21993880-bfef-11ea-97e0-5b8bfb525e20.png)
 3. Cuando las maquinas esten encendidas dar click sobre la maquina virtual llamada Workstation, para acceder a ella es necesario iniciar sesión a la maquina con los siguientes datos:
+
 ![Captura de Pantalla 2020-07-07 a la(s) 1 12 35 a  m](https://user-images.githubusercontent.com/45157348/86725305-25c55600-bfef-11ea-82d0-ffbe341ced76.png)
 
 ```
@@ -30,13 +31,17 @@ En este paso podrán observar las aplicaciones ejemplo desplegadas de manera loc
 
 1. Después de haber ingresado a la maquina virtual Workstation, ahora es necesario encender el servidor local que posee las aplicaciones a manejar en el ejemplo, para esto es necesario acceder a la terminal de la maquina dando click en la barra de acceso izquierda.
 2. Una vez que la terminal está abierta, se ingresa el siguiente el comando para encender el servidor WAS:
+
 ![Captura de Pantalla 2020-07-07 a la(s) 1 12 48 a  m](https://user-images.githubusercontent.com/45157348/86725319-2958dd00-bfef-11ea-827c-8ff70cde3665.png)
+
 ```
 	/home/ibmdemo/cp4a-labs/shared/startWAS.sh
 ```
 
 Una vez ingresado es posible que se le pida la constraseña del usuario sudo, por lo tanto debe ingresar la contraseña: passw0rd. El proceso puede llevar un par de minutos.
+
 ![Captura de Pantalla 2020-07-07 a la(s) 1 13 00 a  m](https://user-images.githubusercontent.com/45157348/86725352-2f4ebe00-bfef-11ea-8a41-ee60348c7455.png)
+
 3. Ahora hay que acceder a la consola de administrador del WebSphere para observar la aplicación desplegada, para esto es necesarios ingresar al navegador web Firefox, donde encontrara una pestaña en el bookmark con el nombre de WebSphere Integrated Solution Console y debe hacer click encima de ella.
 
 4. Cuando ya pueda observar la consola del WAS, es necesario ingresar al sistema con las siguientes credenciales y hacer click en login:
