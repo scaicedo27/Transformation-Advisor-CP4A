@@ -175,6 +175,9 @@ Por defecto el movimiento predeterminado al entorno de Cloud es Liberty en OpenS
 
 1. Desde la ventana del navegador web, haga clic en la nueva pestaña para abrir una nueva ventana del navegador. Escriba la aplicación ModResorts URL: http: // localhost: 9080 / resorts / y presione Entrar. Se muestra la página de inicio de la aplicación Mod Resorts.
 
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 42 06 a  m](https://user-images.githubusercontent.com/45157348/86729591-42fc2380-bff3-11ea-93c3-062c2fb63c90.png)
+
 ## Análisis de resultados Mod Resorts
 Si se observa las complejidades de estas aplicaciones, puede ver que moderesorts-1.0_war.ear  y pbw-ear.ear tienen la complejidad simple, lo que significa que estas dos aplicaciones se pueden migrar al Cloud sin ninguna alteración al código. Pero dado que moderesorts-1.0_war.earapp tiene un problema menor (1) que pbw-ear.earapp (4), se analizaran los resultados de la aplicación moderesorts-1.0_war.ear en detalle.
 
@@ -225,7 +228,13 @@ Dando clic en el link Show results, se puede observar en detalle los problemas a
 
 7. Regrese a la pagina de Transformation Advisor desde el navegador y de clic en el link Inventory report donde se mostrará un informe detallado que ayuda a examinar qué hay en su aplicación, incluida la cantidad de módulos, sus relaciones y las tecnologías en esos módulos. También le ofrece una vista de todos los archivos JAR de utilidad en la aplicación que tienden a acumularse con el tiempo. También se incluyen posibles problemas de implementación y consideraciones de rendimiento.
 
+![Captura de Pantalla 2020-07-07 a la(s) 1 41 37 a  m](https://user-images.githubusercontent.com/45157348/86729566-3c6dac00-bff3-11ea-8840-bcd2aed44513.png)
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 41 47 a  m](https://user-images.githubusercontent.com/45157348/86729573-3e376f80-bff3-11ea-9e07-a187b3d8d191.png)
+
 Desplácese hacia abajo para ver este informe que sirve como una buena herramienta de toma de decisiones para informarle lo que hay dentro de su tiempo de ejecución y para ayudarlo a comprender mejor el tiempo de ejecución, los componentes que tiene y las relaciones entre ellos.
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 41 56 a  m](https://user-images.githubusercontent.com/45157348/86729581-4099c980-bff3-11ea-801a-62bb01f1bc40.png)
 
 De los informes de análisis que examinó anteriormente, sabe que la aplicación Mod Resort es compatible con Liberty en OpenShif, que es el entorno de destino, y el problema que la herramienta identificada no afectaría a la migración de la aplicación. Puede seleccionar con confianza la aplicación como un buen candidato para pasar a la libertad en la nube en el proceso de reempaquetado con el mínimo esfuerzo.
 
