@@ -3,7 +3,7 @@
 En este Hands On se va a realizar una muestra dentro de un ambiente de pruebas donde se utilizará las tecnológias de IBM como lo es Data Collector Utility y Transformation  Advisor para evaluar si una aplicación java cumple con los requisitos para pasar a un ambiente Cloud.
 
 ## Requisitos
- - Tener la CLI de IBM Cloud en el computador o instalar desde [Instalación CLI IBM Cloud](https://cloud.ibm.com/docs/cli).
+ - Tener una cuenta de IBM Cloud, de no tenerla la puede crear gratuitamente desde [IBM Cloud](https://cloud.ibm.com/login).
 
 
 ## Ambiente
