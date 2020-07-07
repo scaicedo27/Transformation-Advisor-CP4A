@@ -13,8 +13,9 @@ En este Hands On se va a realizar una muestra dentro de un ambiente de pruebas d
 
 En este paso se dejara listo el ambiente para trabajar sobre las maquinas virtuales brindadas por Skytap al momento de solicitar el ambiente de pruebas en bluedemos.
 
- 1. Ingresar al link enviado a su correo del acceso a las maquinas virtuales con skytap.
+1. Ingresar al link enviado a su correo del acceso a las maquinas virtuales con skytap.
 2. Encender las seis maquinas virtuales que se le fueron asignadas, dando click en el botón de play.
+![Captura de Pantalla 2020-07-07 a la(s) 1 12 24 a  m](https://user-images.githubusercontent.com/45157348/86725280-21993880-bfef-11ea-97e0-5b8bfb525e20.png)
 3. Cuando las maquinas esten encendidas dar click sobre la maquina virtual llamada Workstation, para acceder a ella es necesario iniciar sesión a la maquina con los siguientes datos:
 ```
 	usuario: ibmdemo
