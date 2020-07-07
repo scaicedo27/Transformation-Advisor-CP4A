@@ -4,7 +4,6 @@ En este Hands On se va a realizar una muestra dentro de un ambiente de pruebas d
 ## Requisitos
 1. Tener una cuenta de IBM Cloud, de no tenerla crearla en el siguiente link:
 
-2.
 
 ## Ambiente
 
@@ -48,6 +47,7 @@ Una vez ingresado es posible que se le pida la constraseña del usuario sudo, po
 	Applications -> Application Types -> WebSphere Enterprise applications
 ```
 6. Al ingresar a la lista podrá observar todas las aplicaciones que están desplegadas localmente en el servidor WebSphere, de las cuales algunas serán utilizadas en las próximas secciones.
+
 
 ## Descargar el Transformation Advisor Collector
 
@@ -111,7 +111,55 @@ En esta parte de la guía se va a utilizar el Transformation Advisor para ver lo
 
 En la página de recomendaciones se pueden observar todas las aplicaciones desplegadas dentro del servidor WAS local.
 
-En la página de Recomendaciones, el entorno de origen de migración identificado se muestra en la sección Perfil y el entorno de destino en la sección Migración preferida. La herramienta de recopilación de datos detecta que el entorno de origen es su perfil de aplicación WebSphere Application Server ND. El entorno de destino es Liberty en OpenShift, que es el entorno de destino predeterminado. La página de Recomendaciones también muestra los resultados del análisis resumido de todas las aplicaciones en el entorno AppSrv01 que se moverán a un entorno Liberty en OpenShiften. Para cada aplicación, puede ver estos resultados: • Nombre • Nivel de complejidad • Coincidencia de tecnología • Dependencias • Problemas • Costo de desarrollo estimado en días Por ejemplo, si desea moverlosodresorts-1_0_war.earapplication a Liberty en OpenShift, el nivel de complejidad es Simple y Tech la coincidencia es del 100%, lo que indica que no es necesario cambiar el código de la aplicación para poder moverlo a la nube. La aplicación tiene dependencia de nodo, tiene 1 problema de menor nivel y el esfuerzo de desarrollo estimado es de 0 días porque no hay cambio de código. Como puede ver, el movimiento predeterminado al entorno de la nube es Liberty en OpenShift, sin embargo, el Asesor de transformación también puede proporcionar opciones de migración si desea migrar su aplicación a diferentes entornos de destino como se muestra abajo:
+En la página de Recomendaciones, el entorno de origen de migración identificado se muestra en la sección Profile y el entorno de destino en la sección Preferred Migration. La herramienta de recopilación de datos detecta que el entorno de origen es su perfil de aplicación WebSphere Application Server ND. El entorno de destino es Liberty en OpenShift, que es el entorno de destino predeterminado para las aplicaciones Java On-Premise. 
+
+La página de Recomendaciones también muestra los resultados del análisis resumido de todas las aplicaciones en el entorno AppSrv01 que se moverán a un entorno Liberty en OpenShift. Para cada aplicación, puede ver estos resultados:
+
+ - Nombre
+ - Nivel de complejidad
+ - Coincidencia de tecnología
+ - Dependencias 
+ - Problemas identificados
+ - Costo de desarrollo estimado en días
+
+Por ejemplo, si desea mover la aplicación modresorts-1_0_war.ear a Liberty en OpenShift, el nivel de complejidad es Simple y la tecnología concuerda en un 100%, lo que indica que no es necesario cambiar el código de la aplicación para poder moverlo a la nube. La aplicación tiene dependencia de nodo, tiene 1 problema de menor nivel y el esfuerzo de desarrollo estimado es de 0 días porque no hay cambio de código.
+
+Por defecto el movimiento predeterminado al entorno de Cloud es Liberty en OpenShift, sin embargo, el Transformation Advisor también puede proporcionar opciones de migración si desea migrar su aplicación a diferentes entornos de destino.
+
+## Observar la aplicación Mod Resorts
+
+1. Desde la ventana del navegador web, haga clic en la nueva pestaña para abrir una nueva ventana del navegador. Escriba la aplicación ModResorts URL: http: // localhost: 9080 / resorts / y presione Entrar. Se muestra la página de inicio de la aplicación Mod Resorts.
+
+## Análisis de resultados Mod Resorts
+Si se observa las complejidades de estas aplicaciones, puede ver que moderesorts-1.0_war.ear  y pbw-ear.ear tienen la complejidad simple, lo que significa que estas dos aplicaciones se pueden migrar al Cloud sin ninguna alteración al código. Pero dado que moderesorts-1.0_war.earapp tiene un problema menor (1) que pbw-ear.earapp (4), se analizaran los resultados de la aplicación moderesorts-1.0_war.ear en detalle.
+
+1.  Seleccione el link moderesorts-1_0_war.ear para ver el resultado del analisis. 
+
+La primera sección en la página de resumen del análisis detallado es la sección de Complejidad. La complejidad general de la aplicación es simple, lo que indica que la aplicación se puede mover directamente a la nube sin ningún cambio de código.
+
+2. Despláce hacia abajo hasta la sección Application Details. Puede ver que aunque no se requiere un cambio de código ni un costo de desarrollo, la migración estimada de todos los costos de desarrollo es de 5 días. Esta estimación se basa en datos de compromisos de servicios de IBM, que incluyen la gestión de migración, la configuración del servidor y las pruebas.
+
+3. Continúe desplazándose hacia abajo hasta la sección Issues o Problemas donde puede observar que el único problema potencial es menor y tiene que ver con  la configuración de la aplicación en el contenedor Docker.
+
+4. A continuación, desplácese hacia abajo hasta la parte inferior de la página y haga clic en el enlace Informe de tecnología o Technology Report; se abrirá una nueva ventana del navegador para mostrar el Informe de evaluación de la aplicación.
+
+El reporte lista todas las tecnologías Java que la aplicación utilizó y si estas tecnologías son compatibles con una plataforma WebSphere específica desde Liberty para Java en IBM Cloud hasta WebSphere tradicional para z/OS. Se utiliza para determinar si un producto WebSphere en particular es adecuado para una aplicación.
+
+Como puede ver en el informe, la aplicación Mod Resorts solo utiliza Java Servlet, que es compatible con todas las plataformas de WebSphere.
+
+5. Volver a la pagina de Transformation Advisor y dar clic en el link de Analysis Report o Reporte de análisis, despues dar clic en continuar y podra ver ahora en detalle el reporte de migración.
+
+En este reporte se muestran todos los problemas encontrados a nivel de código.
+
+6. Deslice hasta la sección Detailed Results by Rule, donde puede observar todos los problemas identificados en base a las reglas de migración. Para la aplicación que estamos analizando aparece solo un error en la configuración para contenedores Docker. 
+
+Dando clic en el link Show results, se puede observar en detalle los problemas a nivel de código de manera especifica mostrando la clase y la linea de error. Esto es un beneficio para ayudar a los desarrolladores a encontrar los problemas especificos.
+
+7. Regrese a la pagina de Transformation Advisor desde el navegador y de clic en el link Inventory report donde se mostrará un informe detallado que ayuda a examinar qué hay en su aplicación, incluida la cantidad de módulos, sus relaciones y las tecnologías en esos módulos. También le ofrece una vista de todos los archivos JAR de utilidad en la aplicación que tienden a acumularse con el tiempo. También se incluyen posibles problemas de implementación y consideraciones de rendimiento.
+
+Desplácese hacia abajo para ver este informe que sirve como una buena herramienta de toma de decisiones para informarle lo que hay dentro de su tiempo de ejecución y para ayudarlo a comprender mejor el tiempo de ejecución, los componentes que tiene y las relaciones entre ellos.
+
+De los informes de análisis que examinó anteriormente, sabe que la aplicación Mod Resort es compatible con Liberty en OpenShif, que es el entorno de destino, y el problema que la herramienta identificada no afectaría a la migración de la aplicación. Puede seleccionar con confianza la aplicación como un buen candidato para pasar a la libertad en la nube en el proceso de reempaquetado con el mínimo esfuerzo.
 
 
 
