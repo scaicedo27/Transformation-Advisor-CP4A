@@ -1,27 +1,117 @@
 # Transformation-Advisor-CP4A
+En este Hands On se va a realizar una muestra dentro de un ambiente de pruebas donde se utilizará las tecnológias de IBM como lo es Data Collector Utility y Transformation  Advisor para evaluar si una aplicación java cumple con los requisitos para pasar a un ambiente Cloud.
 
-4. Lo que ya se ha completado Se han proporcionado seis máquinas virtuales LinuxLinux para este laboratorio. • La Red Hat OpenShift Container Platform (RHOCP) v4.3, está instalada en 4VM, master1VM, master2VM, dnsVM y worker2VM, con 2 nodos maestros y 3 nodos de computadora (los nodos maestros también sirven como nodos de computadora). • El IBM Cloud Pak para aplicaciones (CP4Apps) v4.1 está instalado en el RHOCP. • El Asesor de transformación se ha implementado en el clúster RHOCP como parte de la instalación de IBM Cloud Pak para aplicaciones. Para obtener información sobre cómo instalar IBM Cloud Pak para Applicationson OpenShift, visite: https://www.ibm.com/support/knowledgecenter/SSCSJL_4.x/welcome.html• WorkstationVM es el que utilizará para acceder y trabajar con el clúster RHOCP en este laboratorio. Las credenciales de inicio de sesión para WorkstationVM son: ID de usuario: ibmdemoPassword: passw0rd
-IBM Software Página 6 Nota: Utilice la Contraseña anterior en el Terminal WorkstationVM para sudoin Lab. • Los comandos CLI utilizados en este laboratorio se enumeran en el archivo Commands.txt ubicado en / home / ibmdemo / cp4a-labs / am0100stdirectory de WorkstationVM para usted copiar y pegar estos comandos en la ventana Terminal durante este laboratorio.
+## Requisitos
+1. Tener una cuenta de IBM Cloud, de no tenerla crearla en el siguiente link:
 
-5. Tareas de laboratorio En este laboratorio, accede a WebSphere Application Server para revisar el despliegue de las aplicaciones JEE. Luego irá al Asesor de transformación para identificar una buena aplicación candidata para pasar a la nube. Para identificar qué modelos de programación Java EE están en el servidor, puede ejecutar la herramienta de recopilación de datos del Asesor de transformación en el servidor. El Asesor de transformación crea un inventario del contenido y la estructura de cada aplicación y conoce los problemas que pueden surgir si mueve la aplicación a la nube. Finalmente, revisa los informes de análisis para determinar la complejidad de los esfuerzos de traslado a la nube y selecciona la aplicación candidata a la migración. Aquí están las actividades involucradas en este proceso: • Inicie sesión en WebSphere Application Server para revisar las aplicaciones JEE desplegadas • Ejecute Herramienta de recopilación de datos de Transformation Advisor contra WebSphere Application Server para obtener datos de la aplicación • Revise los informes de análisis que genera Transformation Advisor para identificar la aplicación candidata correcta para una migración rápida y rentable a la nube
-6.Ejecute las tareas de laboratorio 6.1 Inicie sesión en WorkstationVM y comience__1. Inicie las máquinas virtuales de laboratorio haciendo clic en el botón de reproducción__2. Después de iniciar las máquinas virtuales, haga clic en el icono WorkstationVM para acceder a ellas.
-IBM Software Página 7 Se muestra el Workstation Linux Desktop. Ejecutará todas las tareas de laboratorio en esta VM.6.2. Revise las aplicaciones locales de WebSphere En esta tarea, verá las aplicaciones de muestra desplegadas en el entorno local de WebSphere Application Server (WAS). Identificará a uno de ellos para que sea el mejor candidato para mover la nube más tarde .__ 1.Inicie WebSphere Application Server En WorkstationVM, tiene un WebSphere Application Server local que aloja varias aplicaciones de muestra. Para iniciar el servidor WAS: _a. Abra una ventana de terminal haciendo clic en su icono en la barra de herramientas del escritorio de WorkstationVM ._b. En la ventana de terminal, emita el siguiente comando para iniciar el servidor WAS (puede copiar y pegar el comando desde el archivo Comandos.txt en /home/ibmdemo/cp4a-labs/am0100stdirectory)./home/ibmdemo/cp4a-labs/shared/startWAS.sh cuando se le solicite, ingrese la contraseña más segura como: passw0rd.
-IBM Software Página 8 Dentro de unos minutos, el servidor WAS estará listo ._c. Acceda a la Consola de administración de WAS para ver la aplicación desplegada haciendo clic en la barra de herramientas del escritorio del icono del navegador web para abrir una ventana del navegador ._d. para iniciar la consola WAS._e. En la página de inicio de sesión de la Consola de administración WAS, ingrese el ID de usuario y la Contraseña como: wsadmin / passw0rdand clickLogin._f. En la página de la Consola WAS, haga clic en Aplicaciones-> Tipos de aplicación-> Aplicaciones empresariales de WebSphere para ver las aplicaciones desplegado.
-IBM SoftwarePage 9 En la lista de aplicaciones empresariales, puede ver todas las aplicaciones desplegadas. A continuación, usará el Asesor de transformación para analizar estas aplicaciones para identificar a un buen candidato para ser trasladado a la nube
+2.
 
-6.3Descargue la utilidad del recopilador de datos del Asesor de transformación El Asesor de transformación puede evaluar cualquier aplicación basada en Java. En este laboratorio, lo usará para evaluar si la aplicación de WebSphere local, Mod Resorts, es adecuada para pasar a la nube y cuál es el esfuerzo para llegar allí. El Asesor de transformación se está ejecutando en OpenShifta y utilizará sus Datos La utilidad del recopilador para obtener los datos de la aplicación de WebSphere Application Server que se ejecuta en WorkstationVM. Para evaluar las aplicaciones locales de Java, debe ejecutar la utilidad del recopilador de datos del Asesor de transformación en el entorno del servidor de aplicaciones para extraer toda la información de la aplicación del entorno primero. La utilidad se puede descargar desde la página web del Asesor de transformación .__ 1. Desde la ventana del navegador web, haga clic en la marca de libro IBM Transformation Advisor e iníciela .__ 2. Dado que el Asesor de transformación se implementa en RHOCP como operador, se lo redireccionará a la página de inicio de RHOCPL. Haga clic en htpasswdfield. Luego, inicie sesión con ibmadmin / engagementibmas como nombre de usuario y contraseña.
-IBM Software Página 10 Se muestra el Asesor de transformación Página de inicio .__ 3. Cree un nuevo espacio de trabajo ingresando el nombre del espacio de trabajo como Evaluación y luego haciendo clic en Siguiente.
-IBM Software Página 11 Nota: Un espacio de trabajo es un área designada que albergará las recomendaciones de migración proporcionadas por Transformation Advisor contra su entorno de servicio de aplicaciones. Puede nombrarlos y organizarlos como desee, ya sea por aplicación comercial, ubicación o equipos. __4. Ingrese el nombre de la colección como Servidor1 y haga clic en Vamos. Nota: Cada espacio de trabajo se puede dividir en colecciones para una evaluación y planificación más enfocadas. Al igual que los espacios de trabajo, las colecciones se pueden nombrar y organizar de la forma que desee .__ 5. Una vez que se crean el Área de trabajo y la Colección, tendrá opciones para descargar la utilidad Recopilador de datos o cargar el archivo de datos existente. En esta práctica de laboratorio, usará la utilidad Data Collector. Haga clic en Data Collectort para ir a la página de descarga.
-IBM Software Página 12__6. En la página Descargar, puede descargar diferentes versiones de la utilidad según su sistema operativo de origen. También muestra cómo utilizar la utilidad en la línea de comandos para recopilar datos de aplicaciones de los servidores de WebSphere, WebLogica y Tomcat. Dado que la VM del laboratorio es un sistema operativo Linux, haga clic en Descargar Linuxto para obtener la utilidad .__ 7. En la ventana de diálogo Descargar, seleccione la opción Guardar archivo y haga clic en Aceptar.
-IBM Software Page 13 El archivo de la utilidad de recopilación de datos comprimidos se guardará en / home / ibmdemo / Downloadsdirectoryof the desktop desktop.6.4 Ejecutar la utilidad del recopilador de datos del asesor de transformación Después de descargar la utilidad de recopilación de datos comprimidos, necesitará desempacarlo y ejecutar la utilidad contra el servidor WAS para recopilar todas las aplicaciones desplegadas y su datos de configuración del servidor WAS .__ 1. Vuelva a la ventana de terminal haciendo clic en su icono en la barra de herramientas de WorkstationVMdesktop .__ 2. En la ventana de terminal, navegue por el directorio / home / ibmdemo / Downloadsd y visualice su contenido con los comandos: cd / home / ibmdemo / Downloads / ls -l Verá el archivo de la utilidad del recopilador de datos descargado guardado en el directorio .__ 3. Extraiga la utilidad del recopilador de datos con comandos:
-IBM SoftwarePage 14tar xvfz transformadvisor-Linux_Evaluation_Server1.tgz La utilidad del recopilador de datos se extraerá en /home/ibmdemo/Downloads/transformationadvisor-2.0.3directory.__4. Ejecute la utilidad del recopilador de datos con los comandos a continuación para comenzar a recopilar la información de las aplicaciones desplegadas en el servidor WAS.cd /home/ibmdemo/Downloads/transformationadvisor-2.0.3sudo ./bin/transformationadvisor -w / opt / IBM / WebSphere / AppServer -p AppSrv01wsadmin passw0rd cuando se le solicite, ingrese la contraseña de sudo como: passw0rd .__ 5. Escriba 1 para aceptar el acuerdo de licencia y presione Entrar. La utilidad comenzará a recopilar datos de la aplicación.
-IBM SoftwarePage 15 Este proceso tardará algunas veces en completarse según la cantidad de aplicaciones desplegadas en el servidor WAS. En este laboratorio, podrían ser unos minutos. Cuando termine, verá el mensaje "Gracias por cargar sus datos. Puede continuar con la interfaz de usuario de la aplicación para realizar un análisis más detallado ". Los datos de su aplicación se recopilan, se guardan como un archivo zip en el directorio de herramientas como se muestra a continuación. En general, si su servidor de aplicaciones y el Asesor de transformación están en la misma infraestructura de red, los datos recopilados se cargarán automáticamente al Asesor de transformación para que pueda ver los resultados del análisis. De lo contrario, debe cargar manualmente los datos en el Asesor de transformación antes de poder verlos.
+## Ambiente
 
-IBM SoftwarePágina 19WebSphere tradicional para z / OS. Se utiliza para determinar si un producto WebSphere en particular es adecuado para una aplicación. Como puede ver en el informe, la aplicación Mod Resort solo utiliza Java Servlet que es compatible con todas las plataformas WebSphere .__ d. Regrese a la página del Asesor de transformación y haga clic en el enlace Informe de análisis. _i. Haga clic en Aceptar para continuar. Ahora verá el Informe detallado de análisis de migración abierto en una nueva ventana del navegador.
-IBM Software Página 20 Este es el informe de inmersión profunda que muestra todos los problemas encontrados a nivel de código ._ii. Desplácese hasta Resultados detallados por sección de reglas, puede ver todos los problemas de tecnología Java identificados en función de las diferentes reglas de migración. Para la aplicación Mod Resort, hay Una regla de advertencia con respecto a la configuración de la aplicación en los contenedores Docker ._iii. Haga clic en el enlace Mostrar resultados. Puede ver el análisis detallado del problema a nivel de código, en un archivo de clase específico y en una línea específica. Esto ayudará a los desarrolladores a determinar dónde está el problema o quizás un problema potencial.
-IBM SoftwarePage 21_iv.Haga clic en el enlace de ayuda de la regla Show. Esto ampliará la sección Ayuda de la regla que proporciona soluciones recomendadas sobre cómo solucionar el problema. Para el problema de configuración del contenedor Docker, la utilidad proporciona sugerencias de mejores prácticas para externalizar la configuración del contenedor .__ e. Regrese a la página del Asesor de transformación y haga clic en el enlace Informe de inventario.
-IBM Software Página 22 Aparecerá el Informe de inventario. Este informe lo ayuda a examinar el contenido de su aplicación, incluida la cantidad de módulos, sus relaciones y las tecnologías en esos módulos. También le ofrece una vista de todos los archivos JAR de utilidades en la aplicación que tienden a acumularse con el tiempo. También se incluyen posibles problemas de implementación y consideraciones de rendimiento. _i. Desplácese hacia abajo para ver este informe que sirve como una buena herramienta de toma de decisiones para informarle qué hay dentro de su tiempo de ejecución y para ayudarlo a comprender mejor el tiempo de ejecución, los componentes que tiene y las relaciones entre ellos.
-IBM Software Página 23 De los informes de análisis que analizó anteriormente, sabe que la aplicación Mod Resort es compatible con Liberty en OpenShif, que es el entorno de destino, y el problema que la herramienta identificada no afectaría a la migración de la aplicación. Puede seleccionar con confianza la aplicación como un buen candidato para pasar a la libertad en la nube en el proceso de reempaquetado con el mínimo esfuerzo. Ahora sabe que la aplicación Mod Resort se puede reempacar a Liberty en la nube, desea saber si también es una buena opción. candidato para volver a plataforma con WAS en la nube. Para hacer eso, cambie el entorno de destino de Liberty en OpenShift a WebSphere Base tradicional en OpenShift. Como puede ver en la recomendación de TA de que la aplicación Mod Resort también es un buen candidato para el contenedor de plataforma WAS de re-plataforma en la nube. Si desea revisar los detalles de la recomendación , puede seguir los mismos pasos que hizo antes para revisarlos.
-IBM SoftwarePage 24__3. Evalúe la aplicación PlantsByWebSphere (Opcional) __ a. Puede seguir el mismo procedimiento que realizó para la aplicación Mod Resort para ver los resultados del análisis de la aplicación PlantsByWebSpherea. Como puede ver en la lista Resumen, las recomendaciones para que la aplicación se mueva a la nube son las siguientes: • El nivel de complejidad es Simple. • La coincidencia técnica es 100%, lo que significa que el código de la aplicación se puede implementar en Liberty en OpenShif sin ningún cambio.
-IBM SoftwarePage 25 • La aplicación tiene 3 dependencias y 6 problemas menores. • El esfuerzo de desarrollo estimado es de 0 días porque no se necesitan cambios en el código .__ b. Siga los mismos pasos en la sección anterior para evaluar la aplicación PlantsByWebSphereEE6.earapplication.6.6 Vea la aplicación Mod Resort del análisis que hizo anteriormente , usted sabe que la aplicación Mod Resorts es un buen candidato para pasar a la nube, veamos cómo se ve la aplicación .__ 1. Desde la ventana del navegador web, haga clic en una nueva pestaña para abrir una nueva ventana del navegador. Escriba la aplicación ModResorts URL: http: // localhost: 9080 / resorts / y presione Entrar. Se muestra la página de inicio de la aplicación Mod Resorts .__ 2. Haga clic en el menú desplegable ¿DÓNDE? Para ver la lista de ciudades.
-IBM Software Página 26__3. Haga clic en PARÍS, FRANCIA en la lista, que mostrará el clima de la ciudad. Ahora que ha revisado la aplicación, nuestro siguiente paso es mover esta aplicación a la nube. Vaya a la Parte 2 de la serie de laboratorio (Laboratorio 2) para aprender cómo reempaquetar la aplicación para Liberty o a la Parte 3 de la serie de laboratorio (Laboratorio 3) para aprender cómo volver a plataforma para el contenedor WAS en la nube.
+[https://bluedemos.com/show/2459](https://bluedemos.com/show/2459)
+
+## Habilitar ambiente
+
+En este paso se dejara listo el ambiente para trabajar sobre las maquinas virtuales brindadas por Skytap al momento de solicitar el ambiente de pruebas en bluedemos.
+
+ 1. Ingresar al link enviado a su correo del acceso a las maquinas virtuales con skytap.
+2. Encender las seis maquinas virtuales que se le fueron asignadas, dando click en el botón de play.
+3. Cuando las maquinas esten encendidas dar click sobre la maquina virtual llamada Workstation, para acceder a ella es necesario iniciar sesión a la maquina con los siguientes datos:
+```
+	usuario: ibmdemo
+	contraseña: passw0rd
+```
+
+## Revisar aplicaciones on-premise a analizar
+
+En este paso podrán observar las aplicaciones ejemplo desplegadas de manera local en el ambiente del servidor WebSphere Application.
+
+1. Después de haber ingresado a la maquina virtual Workstation, ahora es necesario encender el servidor local que posee las aplicaciones a manejar en el ejemplo, para esto es necesario acceder a la terminal de la maquina dando click en la barra de acceso izquierda.
+2. Una vez que la terminal está abierta, se ingresa el siguiente el comando para encender el servidor WAS:
+```
+	/home/ibmdemo/cp4a-labs/shared/startWAS.sh
+```
+
+Una vez ingresado es posible que se le pida la constraseña del usuario sudo, por lo tanto debe ingresar la contraseña: passw0rd. El proceso puede llevar un par de minutos.
+
+3. Ahora hay que acceder a la consola de administrador del WebSphere para observar la aplicación desplegada, para esto es necesarios ingresar al navegador web Firefox, donde encontrara una pestaña en el bookmark con el nombre de WebSphere Integrated Solution Console y debe hacer click encima de ella.
+
+4. Cuando ya pueda observar la consola del WAS, es necesario ingresar al sistema con las siguientes credenciales y hacer click en login:
+
+```
+	usuario: wsadmin
+	contraseña: passw0rd
+```
+
+5. En la consola WAS es necesario acceder a la siguiente ruta para ver las aplicaciones desplegadas:
+```
+	Applications -> Application Types -> WebSphere Enterprise applications
+```
+6. Al ingresar a la lista podrá observar todas las aplicaciones que están desplegadas localmente en el servidor WebSphere, de las cuales algunas serán utilizadas en las próximas secciones.
+
+## Descargar el Transformation Advisor Collector
+
+El Transformation Advisor puede evaluar cualquier aplicación basada en Java. Durante este hands on , se utilizará para evaluar si la aplicación de WebSphere, Mod Resorts, es adecuada para pasar a la nube y cuál es el esfuerzo necesario para llegar allí. El transformation advisor en este caso esta corriendo bajo OpenShift y utilizará la utilidad del recopilador de datos para obtener los datos de la aplicación.
+
+Para evaluar las aplicaciones locales de Java, debe ejecutar la utilidad del recopilador de datos del transformation advisor en el entorno del servidor de aplicaciones para extraer toda la información de la aplicación del entorno primero, para realizar esto debe seguir lo siguientes pasos:
+
+1. Para descargar la utilidad, es necesario acceder por medio del navegador Firefox al bookmark que lleva por nombre IBM Transformation Advisor, una vez abra la página web hay que iniciar sesión seleccionando primero el ingreso por htpasswd e ingresar los siguientes datos:
+```
+	usuario: ibmadmin
+	constraseña: engageibm
+```
+2. Una vez el acceso sea correcto se ingresa a la página de bienvenida del transformation advisor, donde es necesario crear un nuevo espacio de trabajo o workspace, para esto se ingresa  el nombre Evaluation y se da click en siguiente.
+
+3. Ahora es necesario crear una colección dentro del espacio de trabajo, el cual llevara por nombre Server1 y dar click en let’s go.
+
+4. Una vez que creado el espacio de trabajo y la colección, tendrá dos opciones una es descargar la utilidad de recopilador de datos (Data Collector) o cargar el archivo de datos existente. En este caso se utilizará el Data Collector para esto hay que hacer clic en el Data Collector para ir a la página de descarga.
+
+5. En la página de descarga se puede descargar diferentes versiones de la utilidad según el sistema operativo deseado. También muestra cómo utilizar la utilidad en la línea de comandos para recopilar datos de aplicaciones de los servidores de WebSphere, WebLogic y Tomcat. Dado que el ambiente es una maquina virtual con Linux, se descarga el instalador para dicho sistema operativo.
+
+6. Cuando se abre la ventana de dialogo de Descarga, hay que seleccionar la opción de guardar archivo y aceptar. La dirección del archivo será la siguiente:
+
+```
+	/home/ibmdemo/Downloads
+```
+
+
+## Correr la utilidad de recolección de datos del Transformation Advisor
+
+1. Ir a la terminal de la maquina virtual Workstation desde el escritorio, navegar hasta la ruta /home/ibmdemo/Downloads y observar el contenido de la carpeta.
+
+```
+	cd /home/ibmdemo/Downloads/
+	ls -l
+```
+ 2. Ahora que se ve el archivo descargado de la utilidad de Transformation Advisor, es necesario extraerlo desde el archivo .zip al computador para eso se ingresa el siguiente comando:
+```
+	tar xvfz transformationadvisor-Linux_Evaluation_Server1.tgz
+```
+Cuando se extraen los archivos quedan en en la ruta /home/ibmdemo/Downloads/transformationadvisor-2.0.3 de la maquina virtual.
+
+ 3. El siguiente paso es ejecutar el recolector de datos del transformation advisor con las aplicaciones del servidos WebSphere Local, es necesario ejecutar el comando proporcionado e ingresar la contraseña passw0rd cuando sea necesario. 
+```
+	cd /home/ibmdemo/Downloads/transformationadvisor-2.0.3
+
+	sudo ./bin/transformationadvisor -w /opt/IBM/WebSphere/AppServer -p AppSrv01wsadmin passw0rd
+```
+
+4. Cuando la terminal solicite ingresar un numero digite 1 para aceptar la licencia y presione enter,  la utilidad comenzara a recolectar los datos de las aplicaciones. 
+
+Este proceso tardará algunas veces en completarse según la cantidad de aplicaciones desplegadas en el servidor WAS local. En este HandsOn, podrían ser unos minutos. Cuando termine, verá el mensaje que indica que termino el proceso:  "Thank you for uploading your data. You can proceed to the application UI for doing further analysis”. 
+
+ Los datos de su aplicación se recopilan y se guardan como un archivo zip en el directorio de herramientas como se muestra a continuación. 
+
+En general, si su servidor de aplicaciones y el Transformation Advisor están en la misma infraestructura de red, los datos recopilados se cargarán automáticamente al Transformation Advisor para que pueda ver los resultados del análisis. De lo contrario, debe cargar manualmente los datos en el Transformation Advisor antes de poder verlos.
+
+## Evaluación de las aplicaciones java on-premise
+En esta parte de la guía se va a utilizar el Transformation Advisor para ver los resultados del analisis del recolector de datos. 
+
+1. Regresar al navegador web Firefox, donde se encuentra la pagina de Transformation Advisor y dar clic sobre el link Server1 para ir a la sección de recomendaciones.
+
+En la página de recomendaciones se pueden observar todas las aplicaciones desplegadas dentro del servidor WAS local.
+
+	En la página de Recomendaciones, el entorno de origen de migración identificado se muestra en la sección Prol entorno de destino en la sección Migración preferida. La herramienta de recopilación de datos detecta que el entorno de origen es su perfil de aplicación WebSphere Application Server ND. El entorno de destino es Liberty en OpenShift, que es el entorno de destin predeterminado. La página de Recomendaciones también muestr los resultados del análisis resumido de todas las aplicaciones en el entorno AppSrv01 que se moverán a un entorno Liberty en OpenShiften. Para cada aplicación, puede ver estos resultados: • Nombre • Nivel de complejidad • Coincidencia de tecnología • Dependencias • Problemas • Costo de desarrollo estimado en días Por ejemplo, si desea moverlosodresorts-1_0_war.earapplication a Liberty en OpenShift, el nivel de complejidad es Simple y Tech la coincidencia es del 100%, lo que indica que no es necesario cambiar el código de la aplicación para poder moverlo a la nube. La aplicación tiene dependencia de nodo, tiene 1 problema de menor nivel y el esfuerzo de desarrollo estimado es de 0 días porque no hay cambio de código. Como puede ver, el movimiento predeterminado al entorno de la nube es Liberty en OpenShift, sin embargo, el Asesor de transformación también puede proporcionar opciones de migración si desea migrar su aplicación a diferentes entornos de destino como se muestra abajo:
+
+
+
