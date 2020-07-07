@@ -133,9 +133,15 @@ Cuando se extraen los archivos quedan en en la ruta /home/ibmdemo/Downloads/tran
 
 4. Cuando la terminal solicite ingresar un numero digite 1 para aceptar la licencia y presione enter,  la utilidad comenzara a recolectar los datos de las aplicaciones. 
 
+![Captura de Pantalla 2020-07-07 a la(s) 1 32 47 a  m](https://user-images.githubusercontent.com/45157348/86728279-ed734700-bff1-11ea-8d0e-c34b7e8ce0f3.png)
+
 Este proceso tardará algunas veces en completarse según la cantidad de aplicaciones desplegadas en el servidor WAS local. En este HandsOn, podrían ser unos minutos. Cuando termine, verá el mensaje que indica que termino el proceso:  "Thank you for uploading your data. You can proceed to the application UI for doing further analysis”. 
 
- Los datos de su aplicación se recopilan y se guardan como un archivo zip en el directorio de herramientas como se muestra a continuación. 
+![Captura de Pantalla 2020-07-07 a la(s) 1 33 05 a  m](https://user-images.githubusercontent.com/45157348/86728284-efd5a100-bff1-11ea-9d9a-ed3b821958d0.png)
+
+Los datos de su aplicación se recopilan y se guardan como un archivo zip en el directorio de herramientas como se muestra a continuación. 
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 33 15 a  m](https://user-images.githubusercontent.com/45157348/86728297-f237fb00-bff1-11ea-8c49-14c692389a50.png)
 
 En general, si su servidor de aplicaciones y el Transformation Advisor están en la misma infraestructura de red, los datos recopilados se cargarán automáticamente al Transformation Advisor para que pueda ver los resultados del análisis. De lo contrario, debe cargar manualmente los datos en el Transformation Advisor antes de poder verlos.
 
@@ -144,7 +150,11 @@ En esta parte de la guía se va a utilizar el Transformation Advisor para ver lo
 
 1. Regresar al navegador web Firefox, donde se encuentra la pagina de Transformation Advisor y dar clic sobre el link Server1 para ir a la sección de recomendaciones.
 
+![Captura de Pantalla 2020-07-07 a la(s) 1 33 25 a  m](https://user-images.githubusercontent.com/45157348/86728306-f49a5500-bff1-11ea-8f00-2eb35758c3b6.png)
+
 En la página de recomendaciones se pueden observar todas las aplicaciones desplegadas dentro del servidor WAS local.
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 33 35 a  m](https://user-images.githubusercontent.com/45157348/86728320-f82ddc00-bff1-11ea-837f-ffae2f1cdaa0.png)
 
 En la página de Recomendaciones, el entorno de origen de migración identificado se muestra en la sección Profile y el entorno de destino en la sección Preferred Migration. La herramienta de recopilación de datos detecta que el entorno de origen es su perfil de aplicación WebSphere Application Server ND. El entorno de destino es Liberty en OpenShift, que es el entorno de destino predeterminado para las aplicaciones Java On-Premise. 
 
@@ -169,6 +179,8 @@ Por defecto el movimiento predeterminado al entorno de Cloud es Liberty en OpenS
 Si se observa las complejidades de estas aplicaciones, puede ver que moderesorts-1.0_war.ear  y pbw-ear.ear tienen la complejidad simple, lo que significa que estas dos aplicaciones se pueden migrar al Cloud sin ninguna alteración al código. Pero dado que moderesorts-1.0_war.earapp tiene un problema menor (1) que pbw-ear.earapp (4), se analizaran los resultados de la aplicación moderesorts-1.0_war.ear en detalle.
 
 1.  Seleccione el link moderesorts-1_0_war.ear para ver el resultado del analisis. 
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 39 26 a  m](https://user-images.githubusercontent.com/45157348/86729449-1d6f1a00-bff3-11ea-9207-642193ee03b0.png)
 
 La primera sección en la página de resumen del análisis detallado es la sección de Complejidad. La complejidad general de la aplicación es simple, lo que indica que la aplicación se puede mover directamente a la nube sin ningún cambio de código.
 
