@@ -44,6 +44,8 @@ Una vez ingresado es posible que se le pida la constraseña del usuario sudo, po
 
 3. Ahora hay que acceder a la consola de administrador del WebSphere para observar la aplicación desplegada, para esto es necesarios ingresar al navegador web Firefox, donde encontrara una pestaña en el bookmark con el nombre de WebSphere Integrated Solution Console y debe hacer click encima de ella.
 
+![Captura de Pantalla 2020-07-07 a la(s) 1 13 14 a  m](https://user-images.githubusercontent.com/45157348/86725365-32e24500-bfef-11ea-9fa8-1b14eb287cce.png)
+
 4. Cuando ya pueda observar la consola del WAS, es necesario ingresar al sistema con las siguientes credenciales y hacer click en login:
 
 ```
@@ -55,6 +57,9 @@ Una vez ingresado es posible que se le pida la constraseña del usuario sudo, po
 ```
 	Applications -> Application Types -> WebSphere Enterprise applications
 ```
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 20 08 a  m](https://user-images.githubusercontent.com/45157348/86726775-77baab80-bff0-11ea-99d3-c0c68b58b6bf.png)
+
 6. Al ingresar a la lista podrá observar todas las aplicaciones que están desplegadas localmente en el servidor WebSphere, de las cuales algunas serán utilizadas en las próximas secciones.
 
 
@@ -65,6 +70,9 @@ El Transformation Advisor puede evaluar cualquier aplicación basada en Java. Du
 Para evaluar las aplicaciones locales de Java, debe ejecutar la utilidad del recopilador de datos del transformation advisor en el entorno del servidor de aplicaciones para extraer toda la información de la aplicación del entorno primero, para realizar esto debe seguir lo siguientes pasos:
 
 1. Para descargar la utilidad, es necesario acceder por medio del navegador Firefox al bookmark que lleva por nombre IBM Transformation Advisor, una vez abra la página web hay que iniciar sesión seleccionando primero el ingreso por htpasswd e ingresar los siguientes datos:
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 20 21 a  m](https://user-images.githubusercontent.com/45157348/86726799-7d17f600-bff0-11ea-8970-b021f5c8620f.png)
+
 ```
 	usuario: ibmadmin
 	constraseña: engageibm
