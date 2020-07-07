@@ -208,13 +208,20 @@ Como puede ver en el informe, la aplicación Mod Resorts solo utiliza Java Servl
 
 ![Captura de Pantalla 2020-07-07 a la(s) 1 40 27 a  m](https://user-images.githubusercontent.com/45157348/86729524-2fe95380-bff3-11ea-8288-5f87675b111e.png)
 
-En este reporte se muestran todos los problemas encontrados a nivel de código.
 
 ![Captura de Pantalla 2020-07-07 a la(s) 1 40 35 a  m](https://user-images.githubusercontent.com/45157348/86729536-32e44400-bff3-11ea-86bd-920786bbd81c.png)
 
+En este reporte se muestran todos los problemas encontrados a nivel de código.
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 41 01 a  m](https://user-images.githubusercontent.com/45157348/86729544-34ae0780-bff3-11ea-815f-741dfffa1464.png)
+
 6. Deslice hasta la sección Detailed Results by Rule, donde puede observar todos los problemas identificados en base a las reglas de migración. Para la aplicación que estamos analizando aparece solo un error en la configuración para contenedores Docker. 
 
+![Captura de Pantalla 2020-07-07 a la(s) 1 41 13 a  m](https://user-images.githubusercontent.com/45157348/86729553-37a8f800-bff3-11ea-97a9-1bf080c2ae95.png)
+
 Dando clic en el link Show results, se puede observar en detalle los problemas a nivel de código de manera especifica mostrando la clase y la linea de error. Esto es un beneficio para ayudar a los desarrolladores a encontrar los problemas especificos.
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 41 25 a  m](https://user-images.githubusercontent.com/45157348/86729558-3972bb80-bff3-11ea-9356-a28729cea77a.png)
 
 7. Regrese a la pagina de Transformation Advisor desde el navegador y de clic en el link Inventory report donde se mostrará un informe detallado que ayuda a examinar qué hay en su aplicación, incluida la cantidad de módulos, sus relaciones y las tecnologías en esos módulos. También le ofrece una vista de todos los archivos JAR de utilidad en la aplicación que tienden a acumularse con el tiempo. También se incluyen posibles problemas de implementación y consideraciones de rendimiento.
 
