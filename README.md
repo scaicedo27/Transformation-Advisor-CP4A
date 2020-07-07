@@ -184,19 +184,33 @@ Si se observa las complejidades de estas aplicaciones, puede ver que moderesorts
 
 La primera sección en la página de resumen del análisis detallado es la sección de Complejidad. La complejidad general de la aplicación es simple, lo que indica que la aplicación se puede mover directamente a la nube sin ningún cambio de código.
 
+![Captura de Pantalla 2020-07-07 a la(s) 1 39 39 a  m](https://user-images.githubusercontent.com/45157348/86729469-2102a100-bff3-11ea-97c3-fc5ecfe2999c.png)
+
 2. Despláce hacia abajo hasta la sección Application Details. Puede ver que aunque no se requiere un cambio de código ni un costo de desarrollo, la migración estimada de todos los costos de desarrollo es de 5 días. Esta estimación se basa en datos de compromisos de servicios de IBM, que incluyen la gestión de migración, la configuración del servidor y las pruebas.
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 39 52 a  m](https://user-images.githubusercontent.com/45157348/86729476-23fd9180-bff3-11ea-94ea-320a10c8d659.png)
 
 3. Continúe desplazándose hacia abajo hasta la sección Issues o Problemas donde puede observar que el único problema potencial es menor y tiene que ver con  la configuración de la aplicación en el contenedor Docker.
 
+![Captura de Pantalla 2020-07-07 a la(s) 1 40 02 a  m](https://user-images.githubusercontent.com/45157348/86729494-26f88200-bff3-11ea-8b09-620f92fd2e6b.png)
+
 4. A continuación, desplácese hacia abajo hasta la parte inferior de la página y haga clic en el enlace Informe de tecnología o Technology Report; se abrirá una nueva ventana del navegador para mostrar el Informe de evaluación de la aplicación.
 
+![Captura de Pantalla 2020-07-07 a la(s) 1 40 09 a  m](https://user-images.githubusercontent.com/45157348/86729503-295adc00-bff3-11ea-93b6-4f6118e79262.png)
+
 El reporte lista todas las tecnologías Java que la aplicación utilizó y si estas tecnologías son compatibles con una plataforma WebSphere específica desde Liberty para Java en IBM Cloud hasta WebSphere tradicional para z/OS. Se utiliza para determinar si un producto WebSphere en particular es adecuado para una aplicación.
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 40 18 a  m](https://user-images.githubusercontent.com/45157348/86729519-2d86f980-bff3-11ea-82c5-511e9c4be0ee.png)
 
 Como puede ver en el informe, la aplicación Mod Resorts solo utiliza Java Servlet, que es compatible con todas las plataformas de WebSphere.
 
 5. Volver a la pagina de Transformation Advisor y dar clic en el link de Analysis Report o Reporte de análisis, despues dar clic en continuar y podra ver ahora en detalle el reporte de migración.
 
+![Captura de Pantalla 2020-07-07 a la(s) 1 40 27 a  m](https://user-images.githubusercontent.com/45157348/86729524-2fe95380-bff3-11ea-8288-5f87675b111e.png)
+
 En este reporte se muestran todos los problemas encontrados a nivel de código.
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 40 35 a  m](https://user-images.githubusercontent.com/45157348/86729536-32e44400-bff3-11ea-86bd-920786bbd81c.png)
 
 6. Deslice hasta la sección Detailed Results by Rule, donde puede observar todos los problemas identificados en base a las reglas de migración. Para la aplicación que estamos analizando aparece solo un error en la configuración para contenedores Docker. 
 
