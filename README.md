@@ -73,19 +73,37 @@ Para evaluar las aplicaciones locales de Java, debe ejecutar la utilidad del rec
 
 ![Captura de Pantalla 2020-07-07 a la(s) 1 20 21 a  m](https://user-images.githubusercontent.com/45157348/86726799-7d17f600-bff0-11ea-8970-b021f5c8620f.png)
 
+![Captura de Pantalla 2020-07-07 a la(s) 1 20 29 a  m](https://user-images.githubusercontent.com/45157348/86726819-81dcaa00-bff0-11ea-94d9-406b716b7319.png)
+
 ```
 	usuario: ibmadmin
 	constraseña: engageibm
 ```
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 20 39 a  m](https://user-images.githubusercontent.com/45157348/86726830-843f0400-bff0-11ea-8324-7b3d878297e8.png)
+
 2. Una vez el acceso sea correcto se ingresa a la página de bienvenida del transformation advisor, donde es necesario crear un nuevo espacio de trabajo o workspace, para esto se ingresa  el nombre Evaluation y se da click en siguiente.
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 20 49 a  m](https://user-images.githubusercontent.com/45157348/86726850-87d28b00-bff0-11ea-890b-975827cbe6e1.png)
+![Captura de Pantalla 2020-07-07 a la(s) 1 21 00 a  m](https://user-images.githubusercontent.com/45157348/86726862-8a34e500-bff0-11ea-9172-b359211027d7.png)
 
 3. Ahora es necesario crear una colección dentro del espacio de trabajo, el cual llevara por nombre Server1 y dar click en let’s go.
 
+![Captura de Pantalla 2020-07-07 a la(s) 1 21 11 a  m](https://user-images.githubusercontent.com/45157348/86726875-8dc86c00-bff0-11ea-85bc-c7abc2a9816e.png)
+
 4. Una vez que creado el espacio de trabajo y la colección, tendrá dos opciones una es descargar la utilidad de recopilador de datos (Data Collector) o cargar el archivo de datos existente. En este caso se utilizará el Data Collector para esto hay que hacer clic en el Data Collector para ir a la página de descarga.
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 21 27 a  m](https://user-images.githubusercontent.com/45157348/86726883-902ac600-bff0-11ea-80c6-af9b9e642324.png)
 
 5. En la página de descarga se puede descargar diferentes versiones de la utilidad según el sistema operativo deseado. También muestra cómo utilizar la utilidad en la línea de comandos para recopilar datos de aplicaciones de los servidores de WebSphere, WebLogic y Tomcat. Dado que el ambiente es una maquina virtual con Linux, se descarga el instalador para dicho sistema operativo.
 
-6. Cuando se abre la ventana de dialogo de Descarga, hay que seleccionar la opción de guardar archivo y aceptar. La dirección del archivo será la siguiente:
+![Captura de Pantalla 2020-07-07 a la(s) 1 21 48 a  m](https://user-images.githubusercontent.com/45157348/86726903-9325b680-bff0-11ea-9635-b4a3ed5c718c.png)
+
+6. Cuando se abre la ventana de dialogo de Descarga, hay que seleccionar la opción de guardar archivo y aceptar. 
+
+![Captura de Pantalla 2020-07-07 a la(s) 1 21 59 a  m](https://user-images.githubusercontent.com/45157348/86726920-9620a700-bff0-11ea-805c-0c23b4b075de.png)
+
+La dirección del archivo será la siguiente:
 
 ```
 	/home/ibmdemo/Downloads
