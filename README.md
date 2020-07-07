@@ -1,4 +1,5 @@
-# Transformation-Advisor-CP4A
+# Transformation Advisor de Cloud Pak For Applications 
+
 En este Hands On se va a realizar una muestra dentro de un ambiente de pruebas donde se utilizará las tecnológias de IBM como lo es Data Collector Utility y Transformation  Advisor para evaluar si una aplicación java cumple con los requisitos para pasar a un ambiente Cloud.
 
 ## Requisitos
@@ -6,8 +7,9 @@ En este Hands On se va a realizar una muestra dentro de un ambiente de pruebas d
 
 
 ## Ambiente
+Para solicitar un ambiente para el desarrollo de este Hands On es necesario hacerlo ingresando al siguiente link: [https://bluedemos.com/show/2459](https://bluedemos.com/show/2459)
 
-[https://bluedemos.com/show/2459](https://bluedemos.com/show/2459)
+Una vez solicitado el ambiente le llegará a su correo unos datos de acceso para ingresar a la máquina virtual.
 
 ## Habilitar ambiente
 
